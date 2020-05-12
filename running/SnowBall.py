@@ -24,8 +24,8 @@ class TestSearch:
         self.driver.implicitly_wait(10)
         if len(self.driver.find_elements_by_id("com.xueqiu.android:id/tv_agree")) >= 1:
             self.driver.find_element_by_id("com.xueqiu.android:id/tv_agree").click()
-        sleep(3)
 
+        sleep(3)
         el1 = self.driver.find_element_by_id("com.xueqiu.android:id/tv_search")
         el1.click()
         el2 = self.driver.find_element_by_id("com.xueqiu.android:id/search_input_text")
