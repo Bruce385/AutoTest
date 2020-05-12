@@ -1,0 +1,9 @@
+- id: com.xueqiu.android:id/tv_search
+  click:
+- id: com.xueqiu.android:id/search_input_text
+  input: 阿里巴巴
+- ids: com.xueqiu.android:id/name
+  loopPrint: text
+- xpath: //*[contains(@text, '阿里巴巴') and contains(@resource-id, 'name')]
+  click:
+  swipe: 10

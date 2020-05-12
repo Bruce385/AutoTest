@@ -22,8 +22,6 @@ class TestSettings:
             "resetKeyborad": True,
         }
         self.driver = webdriver.Remote(AppiumServerUrl, caps)
-        self.width = Screen(self.driver).get_screen_width()
-        self.height = Screen(self.driver).get_sreen_height()
 
     def test_set_time_mode(self):
         self.search_element_by_swipe("//*[@text='日期和时间' and contains(@resource-id, 'title')]").click()
@@ -42,9 +40,19 @@ class TestSettings:
         for summary in summary_list:
             print(summary.get_attribute("text"))
 
+    def test_add_account(self):
+        self.search_element_by_swipe("//*[@text='帐号' and contains(@resource-id, 'title')]").click()
+        sleep(3)
+        self.driver.find_element_by_id("android:id/title").click()
+        sleep(3)
+        account_list = self.driver.find_elements_by_id("android:id/title")
+        print()
+        for account in account_list:
+            print(account.get_attribute("text"))
+
     def search_element_by_swipe(self, condition):
         while True:
-            self.driver.swipe(self.width / 2, self.height * 4 / 5, self.width / 2, self.height / 5)
+            Screen(self.driver).screen_swipe()
             if len(self.driver.find_elements_by_xpath(condition)) > 0:
                 return self.driver.find_element_by_xpath(condition)
 

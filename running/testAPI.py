@@ -18,9 +18,10 @@ class TestAPI:
 
     def testCall(self):
         # self.driver.send_sms("10000", GsmCallActions.CALL)
+        print()
         print(self.driver.get_performance_data_types())
         for p in self.driver.get_performance_data_types():
             try:
-                print(self.driver.get_performance_data('com.xueqiu.android', p, 120))
+                print(self.driver.get_performance_data('com.xueqiu.android', p, 80))
             except:
                 pass
